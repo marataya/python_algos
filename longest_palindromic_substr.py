@@ -153,6 +153,70 @@ def manacherLongestPalindromeSubstr(seq: str) -> str:
 
 
 '''
+Intuition
+Using Manacher's algorithm to find the longest palindromic substring efficiently.
+
+Approach
+1 String Transformation: The input string 's' is transformed into a new string 'modified_s' by inserting special characters ('#') between each character and at the beginning and end. This transformation allows the algorithm to handle both even and odd-length palindromes in the same way.
+
+2 Initialization: Initialize variables to keep track of the current center 'C' and the right boundary 'R' of the current palindrome. Also, initialize variables to store the maximum length of a palindrome found ('max_len') and its center ('max_center').
+
+3 Palindromic Length Array: Create an array 'P' to store the length of palindromes at each position in the 'modified_s' string. Initialize it with zeros.
+
+4 Loop through the String: Iterate through the characters of 'modified_s'. For each character 'modified_s[i]', do the following:
+
+- If 'i' is within the right boundary 'R', calculate the mirror position 'mirror' of 'i' with respect to the center 'C'. Update 'P[i]' as the minimum of the remaining length of the current palindrome ('R - i') and the corresponding value in 'P[mirror]'. This step takes advantage of known palindromes to avoid redundant computations.
+- Expand around 'i': Check if the characters at positions 'a' and 'b' are the same, where 'a' is the position one character to the right and 'b' is one character to the left of 'i'. While the characters at 'a' and 'b' match and are within the bounds of the string, increment 'P[i]' and move 'a' and 'b' outwards.
+- Update the center and right boundary: If 'i + P[i]' exceeds the right boundary 'R', update 'C' and 'R' to 'i' and 'i + P[i]' to represent the new center and right boundary of the current palindrome.
+- Update the maximum length: If 'P[i]' is greater than 'max_len', update 'max_len' and 'max_center' to 'P[i]' and 'i', respectively.
+5 Find the Longest Palindromic Substring: After the loop, calculate the start and end indices of the longest palindromic substring by using the 'max_len' and 'max_center'. The start index is calculated as (max_center - max_len) // 2, and the end index is 'start + max_len'.
+
+6 Return the Result: Return the longest palindromic substring by extracting the substring from 's' using the start and end indices.
+
+Complexity
+Time complexity: O(n)O(n)O(n)
+Space complexity: O(n)O(n)O(n)
+
+'''
+def manacherAlgo2(s: str) -> str:
+    modified_s = "#"
+    for char in s:
+        modified_s += char + "#"
+
+    n = len(modified_s)
+    P = [0] * n  # Array to store the length of palindromes at each position
+    C, R = 0, 0  # Center and right boundary of the current palindrome
+
+    max_len = 0  # Maximum length of a palindrome found
+    max_center = 0  # Center of the palindrome with maximum length
+
+    for i in range(n):
+        if i < R:
+            mirror = 2 * C - i  # Mirror position of i
+            P[i] = min(R - i, P[mirror])
+
+        # Expand around the current character
+        a, b = i + (1 + P[i]), i - (1 + P[i])
+        while a < n and b >= 0 and modified_s[a] == modified_s[b]:
+            P[i] += 1
+            a += 1
+            b -= 1
+
+        # Update the center and right boundary if needed
+        if i + P[i] > R:
+            C, R = i, i + P[i]
+
+        # Update the maximum length and its center
+        if P[i] > max_len:
+            max_len = P[i]
+            max_center = i
+
+    start = (max_center - max_len) // 2  # Start index of the longest palindrome
+    end = start + max_len  # End index of the longest palindrome
+
+    return s[start:end]
+
+'''
 O(n^2) solution using
 '''
 def naiveLongestPalindromes(seq):
