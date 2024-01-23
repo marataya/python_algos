@@ -1,4 +1,4 @@
-line 4
-adfaf
-line 2
 asdfasd
+line 2
+adfaf
+line 4
