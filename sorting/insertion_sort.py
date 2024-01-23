@@ -15,10 +15,11 @@ def insertion_sort(A):
         while j > 0 and A[j - 1] > cur:
             A[j] = A[j - 1]
             j -= 1
-            A[j] = cur
+        A[j] = cur
 
 
 if __name__ == '__main__':
     A= [5, 7, 825, 1, 2, 4, 8, 77, 4, 1, 1, 1, 0]
     insertion_sort(A)
     print(A)
+
