@@ -1,3 +1,6 @@
+from stack.empty_exception import Empty
+
+
 class ArrayStack():
     def __init__(self):
         self._data = []
@@ -25,9 +28,6 @@ class ArrayStack():
             raise Empty('Stack is empty')
         return self._data.pop()
 
-
-class Empty(Exception):
-    pass
 
 if __name__ == '__main__':
     S = ArrayStack( ) # contents: [ ]
