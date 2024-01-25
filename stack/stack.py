@@ -1,4 +1,4 @@
-from stack.empty_exception import Empty
+from exceptions import Empty
 
 
 class ArrayStack():
