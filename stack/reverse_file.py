@@ -1,5 +1,4 @@
-from stack.array_stack import ArrayStack
-
+from stack import ArrayStack
 
 def reverse_file(filename):
     S = ArrayStack()
@@ -14,10 +13,10 @@ def reverse_file(filename):
 
 
 if __name__ == '__main__':
-    file = open('input.txt', 'r')
+    file = open('input_for_reverse_file.txt', 'r')
     for line in file:
         print(line)
-    reverse_file('input.txt')
-    file = open('input.txt', 'r')
+    reverse_file('input_for_reverse_file.txt')
+    file = open('input_for_reverse_file.txt', 'r')
     for line in file:
         print(line)
