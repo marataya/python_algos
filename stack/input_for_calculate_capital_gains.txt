@@ -1,0 +1,4 @@
+buy 100 share(s) at 20 each
+buy 20 share(s) at 24 each
+buy 200 share(s) at 36 each
+sell 150 share(s) at 30 each
