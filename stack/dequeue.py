@@ -1,6 +1,4 @@
 from queue import ArrayQueue
-from random import randint
-
 from exceptions import Empty
 
 
