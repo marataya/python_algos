@@ -11,10 +11,10 @@ class ArrayDequeue(ArrayQueue):
         super()._resize(cap)
         self._back = self._size-1
 
-    def dequeu(self):
+    def dequeue(self):
         raise NotImplementedError('Not implemented in the child class')
 
-    def enqueu(self, e):
+    def enqueue(self, e):
         raise NotImplementedError('Not implemented in the child class')
 
     def last(self):

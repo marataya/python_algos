@@ -22,7 +22,7 @@ class ArrayQueue:
 
         return self._data[self._front]
 
-    def dequeu(self):
+    def dequeue(self):
         if self.is_empty():
             raise Empty('Queue is empty')
         answer = self._data[self._front]
@@ -33,7 +33,7 @@ class ArrayQueue:
             self._resize(len(self._data) // 2)
         return answer
 
-    def enqueu(self, e):
+    def enqueue(self, e):
         if self._size == len(self._data):
             self._resize(2 * len(self._data))
         avail = (self._front + self._size) % len(self._data)
@@ -55,21 +55,21 @@ class ArrayQueue:
 if __name__ == '__main__':
     Q = ArrayQueue()
     for k in range(15):
-        Q.enqueu(randint(0, 10))
+        Q.enqueue(randint(0, 10))
         print(Q._data)
     print('1st el:', Q.first())
-    print(Q.dequeu())
-    print(Q.dequeu())
-    print(Q.dequeu())
-    print(Q.dequeu())
+    print(Q.dequeue())
+    print(Q.dequeue())
+    print(Q.dequeue())
+    print(Q.dequeue())
     print(Q._data)
     print('len before shrinking:', len(Q._data))
-    print(Q.dequeu())
-    print(Q.dequeu())
-    print(Q.dequeu())
-    print(Q.dequeu())
-    print(Q.dequeu())
-    print(Q.dequeu())
-    print(Q.dequeu())
+    print(Q.dequeue())
+    print(Q.dequeue())
+    print(Q.dequeue())
+    print(Q.dequeue())
+    print(Q.dequeue())
+    print(Q.dequeue())
+    print(Q.dequeue())
     print(Q._data)
     print('len after shrinking:', len(Q._data))
