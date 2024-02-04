@@ -22,8 +22,10 @@ def compare_outputs(filename, output_buffer):
         print(reference_ouput)
         print('>>>>>>>>>>OUTPUT<<<<<<<<')
         print(output_buffer.getvalue())
-        if output_buffer.getvalue().rstrip() == reference_ouput:
+        if output_buffer.getvalue() == reference_ouput:
             print('>>>>>>>>>>>>>> EQUAL\n\n')
         else:
             print('>>>>>>>>>>>> NOT EQUAL\n\n')
+            with open(filename+"bc", "w") as f:
+                f.write(output_buffer.getvalue())
             sys.exit(1)

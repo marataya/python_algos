@@ -20,7 +20,7 @@ if __name__ == '__main__':
                 row = [int(x) for x in input_file.readline().split()]
                 sets.append(row)
 
-        for row in sets:
+        for idx, row in enumerate(sets):
             result = {}
             for ship in row:
                 if ship not in result:
@@ -28,9 +28,9 @@ if __name__ == '__main__':
                 else:
                     result[ship] += 1
             if 4 in result and result[4] == 1 and 3 in result and result[3] == 2 and 2 in result and result[2] == 3 and 1 in result and result[1] == 4:
-                print('YES')
+                print('YES', end=("\n" if idx != len(sets)-1 else ""))
             else:
-                print('NO')
+                print('NO', end=("\n" if idx != len(sets)-1 else ""))
         # MAIN LOGIC END
         sys.stdout = tmp
 
