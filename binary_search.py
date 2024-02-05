@@ -14,7 +14,6 @@ def binary_search(data, target, low=None, high=None):
         else:
             return binary_search(data, target, mid + 1, high)
 
-
 if __name__ == '__main__':
     a = [1, 2, 5, 7, 55]
     print(binary_search(a, 7))
