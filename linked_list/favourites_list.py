@@ -14,7 +14,7 @@ class FavouritesList:
     def _find_position(self, e) -> PositionalList.Position:
         """Search for element e and return its Position (or None if not found)."""
         walk = self._data.first()
-        while walk is not None and walk.element() != e:
+        while walk is not None and walk.element()._value != e:
             walk = self._data.after(walk)
         return walk
 
@@ -28,8 +28,8 @@ class FavouritesList:
                     walk = self._data.before(walk)
                 self._data.add_before(walk, self._data.delete(p))   # delete/reinsert
     # ----------------------- end of nonpublic utilities -------------------------
-    def __init__(self, pl: PositionalList):
-        self._data = pl
+    def __init__(self):
+        self._data = PositionalList()
 
     def __len__(self):
         return len(self._data)
@@ -42,8 +42,8 @@ class FavouritesList:
         p = self._find_position(e) # try to locate existing element
         if p is None:
             p = self._data.add_last(self._Item(e)) # if new, place at end
-            p.element()._count += 1 # always increment count
-            self._move_up(p) # consider moving forward
+        p.element()._count += 1 # always increment count
+        self._move_up(p) # consider moving forward
 
     def remove(self, e):
         """Remove element e from the list of favorites."""
@@ -58,15 +58,18 @@ class FavouritesList:
         walk = self._data.first()
         for _ in range(k):
             item = walk.element() # element of list is Item
-            yield item # report user’s element
+            yield item._value # report user’s element
             walk = self._data.after(walk)
 
 
 if __name__ == '__main__':
-    pl = PositionalList()
-    pl.add_last(5)
-    pl.add_last(7)
-    pl.add_last(9)
-    fl = FavouritesList(pl)
-    for e in fl.top(3):
+    fl = FavouritesList()
+    fl.access(5)
+    fl.access(7)
+    fl.access(7)
+    fl.access(7)
+    fl.access(7)
+    fl.access(9)
+    fl.access(9)
+    for e in fl.top(len(fl)):
         print(e)
