@@ -29,7 +29,6 @@ def insertion_sort_1(L:PositionalList) -> None:
 
 
 if __name__ == '__main__':
-    print(sys.path)
     A = PositionalList()
     A.add_last(5)
     A.add_last(7)

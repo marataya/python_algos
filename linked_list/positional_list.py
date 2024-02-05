@@ -1,4 +1,5 @@
 from double_linked_base import _DoublyLinkedBase
+from node import Node
 
 
 class PositionalList(_DoublyLinkedBase):
@@ -19,7 +20,8 @@ class PositionalList(_DoublyLinkedBase):
             """ opposite of __eq__ """
             return not(self == other)
     # -------------------------------utility method--------------------------
-    def _validate(self, p):
+    def _validate(self, p) -> Node:
+        """Return position s node, or raise appropriate error if invalid."""
         if not isinstance(p, self.Position):
             raise TypeError('p must be proper Position type')
         if p._container is not self:
@@ -30,7 +32,7 @@ class PositionalList(_DoublyLinkedBase):
     # -------------------------------utility method--------------------------
 
     def _make_position(self, node):
-        """Return Position instance for given node"""
+        """Return Position instance for given node (or None if sentinel)"""
         if node is self._header or node is self._trailer:
             return None
         else:
