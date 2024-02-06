@@ -3,6 +3,7 @@ from time import time
 if __name__ == '__main__':
     count = 10 ** 5
     nums = []
+    # Linear time algo
     begin = time()
     for i in range(count):
         nums.append(i)
@@ -11,6 +12,7 @@ if __name__ == '__main__':
     diff1 = end-begin
     print(f'{diff1} sec')
     nums = []
+    # Quadratic time algo
     begin = time()
     for i in range(count):
         nums.insert(0, i)
