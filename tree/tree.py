@@ -36,7 +36,7 @@ class Tree:
     # ------------- concrete method implemented in this class --------------------
     def is_root(self, p):
         """Return True if p represents the root of the tree"""
-        return self.root == p
+        return self.root() == p
 
     def is_leaf(self, p):
         """Return True if Position p doenst have any child"""
