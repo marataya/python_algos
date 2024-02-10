@@ -31,12 +31,9 @@ The number of nodes in the tree is in the range [0, 5000].
 """
 from typing import Optional
 
+from tree.leetcode.tree_utils import TreeNode, To_tree
 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+
 class Solution:
     def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
         """Recursive solution"""
@@ -53,44 +50,11 @@ class Solution:
 
         return has_sum(root, 0)
 
-    def to_tree(arr):
-        """
-        Converts an array-based binary tree to a class-based binary tree.
 
-        Args:
-          arr: An array representing the binary tree.
-
-        Returns:
-          The root node of the class-based binary tree.
-        """
-
-        if not arr:
-            return None
-
-        root = TreeNode(arr[0])
-        queue = [root]
-        i = 1
-
-        while queue and i < len(arr):
-            node = queue.pop(0)
-
-            if arr[i]:
-                node.left = TreeNode(arr[i])
-                queue.append(node.left)
-
-            i += 1
-
-            if i < len(arr) and arr[i]:
-                node.right = TreeNode(arr[i])
-                queue.append(node.right)
-
-            i += 1
-
-        return root
 
 if __name__ == '__main__':
     arr= [5,4,8,11,None,13,4,7,2,None,None,None,1]
-    root = Solution.to_tree(arr)
+    root = To_tree(arr)
     print(root.val)
     print(root.left.val)
     print(root.right.val)
@@ -100,7 +64,7 @@ if __name__ == '__main__':
     print(Solution.hasPathSum(Solution, root, 22))
 
     arr = [1,2,3]
-    root = Solution.to_tree(arr)
+    root = To_tree(arr)
     print(Solution.hasPathSum(Solution, root, 5))
     print(Solution.hasPathSum(Solution, TreeNode(), 0))
 
