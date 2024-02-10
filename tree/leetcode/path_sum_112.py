@@ -96,9 +96,11 @@ if __name__ == '__main__':
     print(root.right.val)
     print(root.left.left.val)
     print(root.left.right)
+    print('>>>Tests:')
     print(Solution.hasPathSum(Solution, root, 22))
 
     arr = [1,2,3]
     root = Solution.to_tree(arr)
-    print(Solution.hasPathSum(Solution, root, 22))
+    print(Solution.hasPathSum(Solution, root, 5))
+    print(Solution.hasPathSum(Solution, TreeNode(), 0))
 
