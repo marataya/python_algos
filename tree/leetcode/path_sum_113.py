@@ -47,8 +47,8 @@ class Solution:
         def dfs(root: TreeNode, targetSum: int, path: List[int]):
             if root is None:
                 return
-            if root.left is None and root.right is None:
-                if root.val == targetSum:
+            if root.left is None and root.right is None: # base case of recursion when node is a leaf
+                if root.val == targetSum: # checking if targetSum
                     result.append(path + [root.val])
                     return
             dfs(root.left, targetSum - root.val, path + [root.val])
