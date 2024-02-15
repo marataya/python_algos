@@ -4,7 +4,7 @@ from ozon_contest.test_utils import prepare_input, compare_outputs
 from time import time
 
 def find_route(grid, start, end):
-    directions = [(1, 0), (-1, 0), (0, 1), (0, -1)] # up and down, right and left
+    directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]  # up and down, right and left
     queue = [start]
     visited = set()
     paths = {start: []}
