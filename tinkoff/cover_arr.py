@@ -67,6 +67,7 @@ def minimum_cover_interval(segments, target):
     count = [0] * (max_end - min_start + 1)
     for seg in segments:
         count[seg[0] - min_start] = max(count[seg[0] - min_start], seg[1] - seg[0])
+    print(count)
     reach = 0
     max_reach = 0
     target_start = 1 - min_start
@@ -89,9 +90,12 @@ def minimum_cover_interval(segments, target):
 
 
 if __name__ == '__main__':
-    n, q = map(int, input().split())
-    segments = [list(map(int, input().split())) for _ in range(q)]
-    result = minimum_cover_interval(segments, [x + 1 for x in range(n)])
+    # n, q = map(int, input().split())
+    n = 3
+    # segments = [list(map(int, input().split())) for _ in range(q)]
+    segments = [[1, 2], [2, 3], [1, 3]]
+    interval = [x + 1 for x in range(n)]
+    result = minimum_cover_interval(segments, interval)
     if result == -1:
         print("NO")
     else:
