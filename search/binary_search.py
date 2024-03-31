@@ -1,6 +1,6 @@
 import math
 
-# Returns If exists in array
+# Returns If item exists in array
 def binary_array_search(A, target):
     lo = 0
     hi = len(A) - 1
