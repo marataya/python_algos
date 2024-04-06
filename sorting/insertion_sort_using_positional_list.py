@@ -10,7 +10,6 @@ for k from 1 to n − 1 do
     Insert A[k] at its proper location within A[0], A[1], ..., A[k].
 Code Fragment 5.9: High-level description of the insertion-sort algorithm.
 '''
-# from linked_list.positional_list1 import PositionalList
 #
 def insertion_sort_1(L:PositionalList) -> None:
     if len(L) > 1:
