@@ -4,6 +4,7 @@ Input: An array A of n comparable elements
 Output: The array A with elements rearranged in nondecreasing order
 for k from 1 to n − 1 do
     Insert A[k] at its proper location within A[0], A[1], ..., A[k].
+Complexity: O(n^2)
 Code Fragment 5.9: High-level description of the insertion-sort algorithm.
 '''
 

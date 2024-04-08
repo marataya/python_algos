@@ -1,5 +1,5 @@
 '''
-Example from Grokking Algorithms
+Example from Grokking Algorithms using BFS
 '''
 
 from collections import deque
