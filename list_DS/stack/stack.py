@@ -2,6 +2,9 @@ from exceptions import Empty
 
 
 class ArrayStack():
+    def __str__(self):
+        return str(self._data)
+
     def __init__(self):
         self._data = []
 
@@ -45,5 +48,5 @@ if __name__ == '__main__':
     print(len(S)) # contents: [7, 9, 4]; outputs 3
     print(S.pop()) # contents: [7, 9]; outputs 4
     S.push(6) # contents: [7, 9, 6]
-    print(S._data)
+    print(S)
 
