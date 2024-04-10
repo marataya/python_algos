@@ -2,6 +2,17 @@ class LinkedNode:
     def __init__(self, value, tail=None):
         self.value = value
         self.next = tail
+    def check_infinite(self):
+        """check for infinite loop via next"""
+        p1 = p2 = self
+        while p1 is not None and p2 is not None:
+            if p2.next == None: return False
+
+            p1 = p1.next
+            p2 = p2.next.next
+
+            if p1 == p2: return True
+        return False
 
 class LinkedList:
     def __init__(self, *start):
@@ -50,6 +61,13 @@ class LinkedList:
             return 'linked-list: []'
         return f'linked-list: [{",".join(map(str, self))}]'
 
+    def __len__(self):
+        count = 0
+        n = self.head
+        while n is not None:
+            count += 1
+            n = n.next
+        return count
 
 if __name__ == '__main__':
     a = LinkedList()
