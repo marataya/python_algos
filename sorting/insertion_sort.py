@@ -18,9 +18,19 @@ def insertion_sort(A):
             j -= 1
         A[j] = cur
 
+def insertion_sort_v2(A):
+    "Insertion sort v2"
+    N = len(A)
+    for i in range(1,N):
+        for j in range(i,0,-1):
+            if A[j-1] <= A[j]:
+                break
+            A[j],A[j-1] = A[j-1],A[j]
 
 if __name__ == '__main__':
     A= [5, 7, 825, 1, 2, 4, 8, 77, 4, 1, 1, 1, 0]
     insertion_sort(A)
     print(A)
-
+    A= [5, 7, 825, 1, 2, 4, 8, 77, 4, 1, 1, 1, 0]
+    insertion_sort_v2(A)
+    print(A)
