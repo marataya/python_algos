@@ -9,7 +9,7 @@ import random
 
 def heap_sort(A):
     """Function to invoke Heap Sort on A."""
-    hs = HeapSort(A)
+    hs = HeapSortCounting(A)
     hs.sort()
 
 class HeapSort:
