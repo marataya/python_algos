@@ -73,7 +73,7 @@ def quick_sort_v3(arr):
 
 def quick_sort_v4(A):
     def partition(A, lo, hi):
-        pivot = A[hi]
+        pivot = A[random.randint(lo,hi)]
         idx = lo - 1
         for i in range(lo, hi):
             if A[i] <= pivot:
@@ -93,18 +93,15 @@ def quick_sort_v4(A):
 
 
 if __name__ == '__main__':
-    begin = time.time()
     n = 10000
     random_array = [random.randint(1, 100) for _ in range(n)]
-    # end = time.time()
-    # print(f'{end - begin} sec elapsed generating {n} random numbers')
-    # print(random_array)
-    # begin = time.time()
-    # print(quick_sort_v1(random_array))
-    # end = time.time()
-    # print(f'{end - begin} sec quicksort took to sort it')
-    A = list(random_array)
-    quick_sort_v4(A)
-    print(A)
+    print(random_array)
+    begin = time.time()
+    print(quick_sort_v4(random_array))
+    end = time.time()
+    print(f'{end - begin} sec quicksort took to sort it')
+    # A = list(random_array)
+    # quick_sort_v4(A)
+    # print(A)
 
     # print(quick_sort_v3(A))
