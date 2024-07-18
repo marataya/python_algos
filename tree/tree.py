@@ -1,4 +1,4 @@
-from linked_list.linked_queue import LinkedQueue
+from pointer_structures.linked_queue import LinkedQueue
 
 
 class Tree:
